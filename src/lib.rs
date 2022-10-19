@@ -59,6 +59,10 @@ impl<IntState> MyStructBuilder<(IntState, ())> {
     pub fn optional_string(mut self, string: impl Into<String>) -> MyStructBuilder<(IntState, HasStr)> {
         self.s.optional_string = Some(string.into());
         MyStructBuilder { s: self.s, _assign_once_state: PhantomData }
+        // or, with const self:
+        // MyStructBuilder { 
+        //  s: MyStruct { optional_string: Some(string.into()), ..self.s}, 
+        //  _assign_once_state: PhantomData }
     }
 }
 

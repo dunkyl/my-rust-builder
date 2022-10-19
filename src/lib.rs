@@ -75,8 +75,10 @@ mod tests {
             .add_thing("whales")
             .add_thing("are")
             .add_thing("cool")
-            // .optional_string("oops")
-            // .optional_int(6)
+            //not implemented for Builder that already had optional_string set:
+                // .optional_string("oops") 
+            //not implemented for Builder that already had optional_int set:
+                // .optional_int(6)
             .build();
         println!("{:?}", s);
         s.explain_me();
